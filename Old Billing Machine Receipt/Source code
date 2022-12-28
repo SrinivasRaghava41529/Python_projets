@@ -1,1 +1,66 @@
-{"nbformat":4,"nbformat_minor":0,"metadata":{"colab":{"provenance":[],"authorship_tag":"ABX9TyOSDCMVrPnkDtEU6K84+FWk"},"kernelspec":{"name":"python3","display_name":"Python 3"},"language_info":{"name":"python"}},"cells":[{"cell_type":"markdown","source":["# Old Billing Machine Receipt "],"metadata":{"id":"juQWolOQusGq"}},{"cell_type":"code","source":["pip install prettytable"],"metadata":{"id":"GWu1g9t-bsAo","colab":{"base_uri":"https://localhost:8080/"},"executionInfo":{"status":"ok","timestamp":1672242247775,"user_tz":-330,"elapsed":3739,"user":{"displayName":"adduri srinivas raghava 122010404025","userId":"04013150246905485822"}},"outputId":"28ee0bc6-3ef8-469e-f935-eccfdf4eb793"},"execution_count":3,"outputs":[{"output_type":"stream","name":"stdout","text":["Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/\n","Requirement already satisfied: prettytable in /usr/local/lib/python3.8/dist-packages (3.5.0)\n","Requirement already satisfied: wcwidth in /usr/local/lib/python3.8/dist-packages (from prettytable) (0.2.5)\n"]}]},{"cell_type":"code","source":["from prettytable import PrettyTable\n","import datetime"],"metadata":{"id":"jE9EqFdTZ9LI","executionInfo":{"status":"ok","timestamp":1672242330144,"user_tz":-330,"elapsed":604,"user":{"displayName":"adduri srinivas raghava 122010404025","userId":"04013150246905485822"}}},"execution_count":4,"outputs":[]},{"cell_type":"code","source":["menu = {'Burgers':140,\n","        'Chicken soup':230,\n","        'Chicken pot pie':250,\n","        'Tomato, Onion Pizza':210,\n","        'Chilly Chicken Dry':195,\n","        'Rogan Soya Chapathi with Roomali Roti':250\n","        }\n","for x, y in menu.items():\n","  print(x, y)\n","\n","table = PrettyTable(['Item Code', 'Quantity','Item Price'])\n","bill = []\n","print('1 - Burgers \\n2 - Chicken soup \\n3 - Chicken pot pie\\n4 - Tomato Onion Pizza\\n5 - Chilly Chicken Dry\\n6 - Rogan Soya Chapathi with Roomali Roti\\n7 - EXIT')\n","while True:\n","  ordered= {1:'Burgers',\n","          2:'Chicken soup',\n","          3:'Chicken pot pie',\n","          4:'Tomato, Onion Pizza',\n","          5:'Chilly Chicken Dry',\n","          6:'Rogan Soya Chap with Roomali Roti'\n","          }\n","  \n","  t = int(input('Enter the nummber from 1 to 6 for food codes as given and enter 0 to exit: '))\n","\n","  if ((t>=1) and (t<=6)):\n","    b1=ordered[t]\n","    b2=menu[b1]\n","    q = int(input(\"Enter the number of quantity ordered: \"))\n","    tt=b2*q\n","    bill.append(tt)\n","    table.add_row([t,q,tt])\n","    \n","  elif t==0:\n","    break\n","\n","       \n","\n","\n","\n","print('-'*80)\n","tittle = 'JOHNNY SINS CHINESE RESTAURANT'\n","Adress='OPP GANDHI INSTITUTE'\n","print(tittle)\n","print(Adress)\n","now = datetime.datetime.now()\n","#print(now)\n","date_time = now.strftime(\"%m/%d/%Y\\t\\t\\t\\t\\t %H:%M:%S\")\n","print(date_time)\n","print('-'*80)\n","\n","total= sum(bill)\n","#table.add_row(['TOTAL', total])\n","total= sum(bill)\n","\n","print(table)\n","print('*'*80)\n","print('\\n')\n","print('Total\\t\\t\\t',total)\n","print('\\n')\n","print('*'*80)\n","print('\\nThanks for shopping with us :)')\n","#30"],"metadata":{"colab":{"base_uri":"https://localhost:8080/"},"id":"M9P0-EQdZ05j","executionInfo":{"status":"ok","timestamp":1672246569762,"user_tz":-330,"elapsed":24156,"user":{"displayName":"adduri srinivas raghava 122010404025","userId":"04013150246905485822"}},"outputId":"6e55284b-8429-4e43-aaab-1fd6c49e4868"},"execution_count":42,"outputs":[{"output_type":"stream","name":"stdout","text":["Burgers 140\n","Chicken soup 230\n","Chicken pot pie 250\n","Tomato, Onion Pizza 210\n","Chilly Chicken Dry 195\n","Rogan Soya Chapathi with Roomali Roti 250\n","1 - Burgers \n","2 - Chicken soup \n","3 - Chicken pot pie\n","4 - Tomato Onion Pizza\n","5 - Chilly Chicken Dry\n","6 - Rogan Soya Chapathi with Roomali Roti\n","7 - EXIT\n","Enter the nummber from 1 to 6 for food codes as given and enter 0 to exit: 5\n","Enter the number of quantity ordered: 6\n","Enter the nummber from 1 to 6 for food codes as given and enter 0 to exit: 4\n","Enter the number of quantity ordered: 0\n","Enter the nummber from 1 to 6 for food codes as given and enter 0 to exit: 5\n","Enter the number of quantity ordered: 3\n","Enter the nummber from 1 to 6 for food codes as given and enter 0 to exit: 1\n","Enter the number of quantity ordered: 2\n","Enter the nummber from 1 to 6 for food codes as given and enter 0 to exit: 0\n","--------------------------------------------------------------------------------\n","JOHNNY SINS CHINESE RESTAURANT\n","OPP GANDHI INSTITUTE\n","12/28/2022\t\t\t\t\t 16:56:10\n","--------------------------------------------------------------------------------\n","+-----------+----------+------------+\n","| Item Code | Quantity | Item Price |\n","+-----------+----------+------------+\n","|     5     |    6     |    1170    |\n","|     4     |    0     |     0      |\n","|     5     |    3     |    585     |\n","|     1     |    2     |    280     |\n","+-----------+----------+------------+\n","********************************************************************************\n","\n","\n","Total\t\t\t 2035\n","\n","\n","********************************************************************************\n","\n","Thanks for shopping with us :)\n"]}]}]}
+pip install prettytable
+
+from prettytable import PrettyTable
+import datetime
+
+menu = {'Burgers':140,
+        'Chicken soup':230,
+        'Chicken pot pie':250,
+        'Tomato, Onion Pizza':210,
+        'Chilly Chicken Dry':195,
+        'Rogan Soya Chapathi with Roomali Roti':250
+        }
+for x, y in menu.items():
+  print(x, y)
+
+table = PrettyTable(['Item Code', 'Quantity','Item Price'])
+bill = []
+print('1 - Burgers \n2 - Chicken soup \n3 - Chicken pot pie\n4 - Tomato Onion Pizza\n5 - Chilly Chicken Dry\n6 - Rogan Soya Chapathi with Roomali Roti\n7 - EXIT')
+while True:
+  ordered= {1:'Burgers',
+          2:'Chicken soup',
+          3:'Chicken pot pie',
+          4:'Tomato, Onion Pizza',
+          5:'Chilly Chicken Dry',
+          6:'Rogan Soya Chap with Roomali Roti'
+          }
+  
+  t = int(input('Enter the nummber from 1 to 6 for food codes as given and enter 0 to exit: '))
+
+  if ((t>=1) and (t<=6)):
+    b1=ordered[t]
+    b2=menu[b1]
+    q = int(input("Enter the number of quantity ordered: "))
+    tt=b2*q
+    bill.append(tt)
+    table.add_row([t,q,tt])
+    
+  elif t==0:
+    break
+
+       
+
+
+
+print('-'*80)
+tittle = 'JOHNNY SINS CHINESE RESTAURANT'
+Adress='OPP GANDHI INSTITUTE'
+print(tittle)
+print(Adress)
+now = datetime.datetime.now()
+
+date_time = now.strftime("%m/%d/%Y\t\t\t\t\t %H:%M:%S")
+print(date_time)
+print('-'*80)
+
+total= sum(bill)
+
+total= sum(bill)
+
+print(table)
+print('*'*80)
+print('\n')
+print('Total\t\t\t',total)
+print('\n')
+print('*'*80)
+print('\nThanks for shopping with us :)')
